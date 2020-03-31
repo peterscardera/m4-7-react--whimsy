@@ -6,6 +6,8 @@ import { COLORS } from '../../constants';
 import avatar from '../../assets/carmen-sandiego.png';
 
 import Tweet from '../Tweet';
+const 
+
 
 function reducer(state, action) {
   switch (action.type) {

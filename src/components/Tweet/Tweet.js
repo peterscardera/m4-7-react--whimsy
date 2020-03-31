@@ -7,11 +7,16 @@ import LikeButton from '../LikeButton';
 import Action from './Action';
 import TweetActionIcon from './TweetActionIcon';
 
+
+
+
 const propTypes = {
   displayName: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   avatarSrc: PropTypes.string.isRequired,
+ timestamp: PropTypes.string.isRequired,
   tweetContents: PropTypes.string.isRequired,
+  //prop type add for t
 };
 
 const Tweet = ({
@@ -27,6 +32,12 @@ const Tweet = ({
   handleToggleLike,
   handleToggleRetweet,
 }) => {
+ 
+  const dateShow =  timestamp.toString().split(" ")
+  let splittedDate = dateShow.slice(0,5).join(' ')
+ 
+
+
   return (
     <Wrapper>
       <Header>
@@ -34,11 +45,12 @@ const Tweet = ({
         <Name>
           <DisplayName>{displayName}</DisplayName>
           <Username>@{username}</Username>
+  <div> {splittedDate}</div>
         </Name>
       </Header>
 
       <TweetContents>{tweetContents}</TweetContents>
-
+  <Stats>{numOfRetweets} Retweets{numOfLikes} Likes</Stats>
       <Divider />
 
       <Actions>
